@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Rock Paper Scissors</title>
+
+    
+</head>
+<body>
+    <script>
+        
+        function getComputerChoice(){
+            let choice = ["rock", "paper", "scissor"];
+            let x = Math.floor(Math.random() * (3) + 0);
+            return choice[x];
+        }
+
+        let a = getComputerChoice();
+        console.log(a);
+    
+
+    </script>
+</body>
+</html>
