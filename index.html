@@ -14,13 +14,86 @@
         function getComputerChoice(){
             let choice = ["rock", "paper", "scissor"];
             let x = Math.floor(Math.random() * (3) + 0);
+            
             return choice[x];
+            
         }
 
-        let a = getComputerChoice();
-        console.log(a);
-    
+        function playRound(playerSelection,computerSelection){
+            playerSelection = prompt("Enter your choice: ");
+            playerSelection = playerSelection.toString().toUpperCase();
+            computerSelection = computerSelection.toString().toUpperCase();
+            console.log(playerSelection);
+            console.log(computerSelection)
 
+            if(playerSelection == computerSelection){
+                console.log("Draw");
+                return "draw";
+            }
+            if(playerSelection == "ROCK" && computerSelection == "PAPER"){
+                console.log("Computer wins");
+                return "computer";
+            }
+            if(playerSelection == "ROCK" && computerSelection == "SCISSOR"){
+                console.log("Player wins");
+                return "player";
+            }
+            if(playerSelection == "PAPER" && computerSelection == "ROCK"){
+                console.log("Computer wins");
+                return "computer";
+            }
+            if(playerSelection == "PAPER" && computerSelection == "SCISSOR"){
+                console.log("Player wins");
+                return "player";
+            }
+            if(playerSelection == "SCISSOR" && computerSelection == "ROCK"){
+                console.log("Computer wins");
+                return "computer";
+            }
+            if(playerSelection == "SCISSOR" && computerSelection == "PAPER"){
+                console.log("Player wins");
+                return "player";
+            }
+        }
+    
+        
+        function game(){
+            let comp_score = 0.0;
+            let player_score = 0.0;
+            let draw = 0.0;
+
+            
+
+            for(let i = 0; i<5; i++){
+                round = playRound("Rock", getComputerChoice());       
+                if(round == "draw"){
+                    draw++;
+                }
+                else if(round == "computer"){
+                    comp_score++;
+                }
+                else if(round == "player"){
+                    player_score++;
+                }
+            }
+
+            console.log(comp_score);
+            console.log(player_score);
+
+            if(comp_score > player_score){
+                console.log("Computer wins the game");
+            }
+            else if(player_score > comp_score){
+                console.log("Player wins the game");
+            }
+            else if(player_score == comp_score){
+                console.log("Game is a draw");
+            }
+        }
+
+        game();
+
+        
     </script>
 </body>
 </html>
