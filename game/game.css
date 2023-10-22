@@ -8,8 +8,26 @@ body{
     flex-direction: column;
     margin: auto;
     margin-top: 150px;
-    height: 550px;
+    height: 600px;
     width: 500px;
+}
+
+
+
+.round{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 50px;
+    background: white;
+    border: 2px solid blue;
+
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.round p{
+    font-size: 30px;
 }
 
 .score{
