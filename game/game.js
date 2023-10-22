@@ -152,7 +152,7 @@ function playGame(){
     const btnRock = document.querySelector('#rock');
     const btnPaper = document.querySelector('#paper');
     const btnScissor = document.querySelector('#scissor');
-
+    
     btnRock.addEventListener('click', () => {
         computerChoice = getComputerChoice();
         //console.log(computerChoice);
