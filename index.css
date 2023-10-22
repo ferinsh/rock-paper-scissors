@@ -1,115 +1,33 @@
-body{
-    background: gray;
-}
 
 
-.play-area{
+.get-number-rounds{
     display: flex;
     flex-direction: column;
+    height: 80px;
+    width: 300px;
+
     margin: auto;
-    margin-top: 150px;
-    height: 550px;
-    width: 500px;
-}
-
-.score{
-    height: 50px;
-    background-color: aquamarine;
-    border: 2px solid black;
-    
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-left: 10px;
-    padding-right: 10px;
-
-}
-
-
-.score h3{
-
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    text-align: center;
-    height: 40px;
-    width: 100px;
-
-    padding-left: 5px;
-    padding-right: 5px;
-
-    color: brown;
-    font-size: 15px;
-    background: beige;
-
+    margin-top: 500px;
     border: 1px solid black;
-    border-radius: 50px;
-    
 }
 
-.computer-area{
+.gnr-upper{
     display: flex;
     align-items: center;
     justify-content: center;
-
-    height: 200px;
-    background-color: beige;
-    border: 2px solid red;
+    
+    height: 40px;
+    
+    border: 1px solid black;
 }
 
-.player-area{
+.gnr-upper h3{
+    text-align: center;
+}
+
+.gnr-lower{
     display: flex;
-    flex-direction: column;
-    height: 300px;
-    background-color: antiquewhite;
+    height: 40px;
     
-}
-
-.player-selection{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    
-    height: 200px;
-    border: 2px solid black;
-    
-}
-
-
-.selection-display{
-    color: brown;
-}
-
-.player-choice{
-
-    display: flex;
-    align-content: center;
-    justify-content: center;
-    
-    border: 2px solid blue;
-    height: 100px;
-    
-    
-}
-
-.player-choice button{
-    background-color: burlywood;
-    border: 2px solid white;
-    border-radius: 50px;
-    
-    height: 50px;
-    margin: auto;
-    width: 100px;
-    
-}
-
-
-
-.player-choice button:hover{
-    background-color: cadetblue;
-    border: 3px solid black;
+    border: 1px solid black;
 }
