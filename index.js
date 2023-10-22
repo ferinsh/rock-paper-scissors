@@ -91,7 +91,7 @@ function getComputerChoice(){
 
 function playRound(playerSelection, computerSelection){
 
-    console.log(playerSelection);
+    //console.log(playerSelection);
 
     if(playerSelection == computerSelection){
         //console.log("Draw");
@@ -142,6 +142,12 @@ function playGame(){
 
     const boxPlayerSelectionDisplay = document.querySelector("#player-selection-display");
     const boxComputerSelectionDisplay = document.querySelector("#computer-selection-display");
+    
+    
+    const playerScoreDisplay = document.querySelector('#player-score');
+    const compScoreDisplay = document.querySelector('#comp-score');    
+    const drawScoreDisplay = document.querySelector('#draw-score');
+
 
     const btnRock = document.querySelector('#rock');
     const btnPaper = document.querySelector('#paper');
@@ -157,27 +163,59 @@ function playGame(){
 
         if(playRound("ROCK", computerChoice) == "player"){
             playerScore = playerScore + 1;
-            console.log("player: " + playerScore);
+            playerScoreDisplay.textContent = "Player score: " + playerScore;
         }else if(playRound("ROCK", computerChoice) == "computer"){
             computerScore = computerScore + 1;
-            console.log("computer: " + computerScore);
+            compScoreDisplay.textContent = "Computer score: " + computerScore;
+            
         }else{
-            draw += 1;
-            console.log("draw: " + draw);
+            draw = draw + 1;
+            drawScoreDisplay.textContent = "Draw: " + draw;
+            
         }
 
     });
 
     btnPaper.addEventListener('click', () => {
+        computerChoice = getComputerChoice();
+
         playRound("PAPER", "PAPER");
         boxPlayerSelectionDisplay.textContent = "PAPER";
         boxComputerSelectionDisplay.textContent = getComputerChoice();
+
+        if(playRound("PAPER", computerChoice) == "player"){
+            playerScore = playerScore + 1;
+            playerScoreDisplay.textContent = "Player score: " + playerScore;
+        }else if(playRound("ROCK", computerChoice) == "computer"){
+            computerScore = computerScore + 1;
+            compScoreDisplay.textContent = "Computer score: " + computerScore;
+            
+        }else{
+            draw = draw + 1;
+            drawScoreDisplay.textContent = "Draw: " + draw;
+            
+        }
     })
 
     btnScissor.addEventListener('click', () => {
+        computerChoice = getComputerChoice();
+
         playRound("SCISSOR", "SCISSOR");
         boxPlayerSelectionDisplay.textContent = "SCISSOR";
         boxComputerSelectionDisplay.textContent = getComputerChoice();
+
+        if(playRound("ROCK", computerChoice) == "player"){
+            playerScore = playerScore + 1;
+            playerScoreDisplay.textContent = "Player score: " + playerScore;
+        }else if(playRound("ROCK", computerChoice) == "computer"){
+            computerScore = computerScore + 1;
+            compScoreDisplay.textContent = "Computer score: " + computerScore;
+            
+        }else{
+            draw = draw + 1;
+            drawScoreDisplay.textContent = "Draw: " + draw;
+            
+        }
     })
 
 
