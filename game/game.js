@@ -1,166 +1,126 @@
+//FUNCTIONS
+//function definitions
+function playRound(roundChoice, roundScore, tempChoicePlayer){    //roundChoice == choice, roundScore == score
+    
+    roundChoice[0] = tempChoicePlayer;                     //player choice  
+    roundChoice[1] = getComputerChoice();        //computer choice
+    
+    
+    if(roundChoice[0] == "rock" && roundChoice[1] == "rock"){
+        roundScore[1] += 1;
+        console.log("draw");
+    }
+    if(roundChoice[0] == "paper" && roundChoice[1] == "paper"){
+        roundScore[1] += 1;
+        console.log("draw");
+    }
+    if(roundChoice[0] == "scissor" && roundChoice[1] == "scissor"){
+        roundScore[1] += 1;
+        console.log("draw");
+    }
+    if(roundChoice[0] == "rock" && roundChoice[1] == "scissor"){
+        roundScore[0] += 1;
+        console.log("player wins");
+    }
+    if(roundChoice[0] == "paper" && roundChoice[1] == "rock"){
+        roundScore[0] += 1;
+        console.log("player wins");
+    }
+    if(roundChoice[0] == "scissor" && roundChoice[1] == "paper"){
+        roundScore[0] += 1;
+        console.log("player wins");
+    }
+    if(roundChoice[0] == "rock" && roundChoice[1] == "paper"){
+        roundScore[2] += 1;
+        console.log("computer wins");
+    }
+    if(roundChoice[0] == "paper" && roundChoice[1] == "scissor"){
+        roundScore[2] += 1;
+        console.log("computer wins");
+    }
+    if(roundChoice[0] == "scissor" && roundChoice[1] == "rock"){
+        roundScore[2] += 1;
+        console.log("computer wins");
+    }
+    
+    if(round[0]<round[1]){
+        console.log("Over");
+        console.log('OVER');
+        console.log(score);
+        console.log("score reset");
+        console.log(score);
+    }
 
+    round[0]++;
+    console.log(roundScore);
 
+}
 
 function getComputerChoice(){
-    let choice = ["rock", "paper", "scissor"];
-    let x = Math.floor(Math.random() * (3) + 0);
-    
-    return choice[x].toUpperCase();
+    const TEMP = ["rock", "paper", "scissor"];
+    const TEMP_RANDOM = Math.floor(Math.random() * 3);
+    return TEMP[TEMP_RANDOM];
 }
 
-function getWinner(playerSelection, boxSelectionDisplay){
-    var computerSelection = "";
-    computerSelection = getComputerChoice().toUpperCase();
-    boxSelectionDisplay[0].textContent = "ROCK";
-    boxSelectionDisplay[1].textContent = computerSelection;
-
-    if(playerSelection == computerSelection){
-        return "draw";
+function getWinner(){
+    if(score[0] == score[2]){
+        return "game is a draw"
     }
-    if(playerSelection == "ROCK" && computerSelection == "PAPER"){
-        return "computer";
+    if(score[0] > score[2]){
+        return "player wins the game";
     }
-    if(playerSelection == "ROCK" && computerSelection == "SCISSOR"){
-        return "player";
-    }
-    if(playerSelection == "PAPER" && computerSelection == "ROCK"){
-        return "computer";
-    }
-    if(playerSelection == "PAPER" && computerSelection == "SCISSOR"){
-        return "player";
-    }
-    if(playerSelection == "SCISSOR" && computerSelection == "ROCK"){
-        return "computer";
-    }
-    if(playerSelection == "SCISSOR" && computerSelection == "PAPER"){
-        return "player";
-    }   
-}
-
-function playRound(playerSelection, scoreArray, scoreDisplay){
-    
-    
-    console.log(scoreArray[0]);
-    console.log(scoreArray[1]);
-    console.log(scoreArray[2]);
-
-    if(getWinner(playerSelection, boxSelectionDisplay) == "player"){
-        scoreArray[0] = scoreArray[0] + 1;
-        scoreDisplay[0].textContent = "Player score: " + scoreArray[0];
-    }
-    if(getWinner(playerSelection, boxSelectionDisplay) == "computer"){
-        scoreArray[1] = scoreArray[1] + 1;
-        scoreDisplay[1].textContent = "Computer score: " + scoreArray[1];
-    }
-    if(getWinner(playerSelection, boxSelectionDisplay) == "draw"){
-        scoreArray[2] = scoreArray[2] + 1;
-        scoreDisplay[2].textContent = "Draw: " + scoreArray[2];
+    if(score[0] < score[2]){
+        return "computer wins the game";
     }
 }
 
-
-function checkRound(roundNumber){
-    var roundNumberInt = parseInt(roundNumber.textContent);
-    return roundNumberInt;
-}
-
-function nextround(){
-    playGame(scoreArray, boxSelectionDisplay, scoreDisplay);
+function btnCallRock(){
+    btnRock.addEventListener('click', console.log("rock"));
 }
 
 
-function playGame(scoreArray, boxSelectionDisplay, scoreDisplay){
-/*    var computerChoice = "";
-
-    var playerScore = 0;
-    var computerScore = 0;
-    var draw = 0;
-*/
-    
-    console.log(scoreArray)
-
-    //const boxPlayerSelectionDisplay = document.querySelector("#player-selection-display");
-    //console.log(typeof(boxPlayerSelectionDisplay));
-    
-    //const boxComputerSelectionDisplay = document.querySelector("#computer-selection-display");
-    
-    //const playerScoreDisplay = document.querySelector('#player-score');
-    //const compScoreDisplay = document.querySelector('#comp-score');    
-    //const drawScoreDisplay = document.querySelector('#draw-score');
-
-    const btnRock = document.querySelector('#rock');
-    const btnPaper = document.querySelector('#paper');
-    const btnScissor = document.querySelector('#scissor');
-
-    
-    
-    
-    
-        console.log(checkRound(roundNumber));
-        btnRock.addEventListener('click', () => {
-            playRound("ROCK", scoreArray, boxSelectionDisplay, scoreDisplay);
-            console.log(checkRound(roundNumber));
-            
-            if(checkRound(roundNumber)<noRounds){
-                nextround();
-            }
-            
-        });
-
-        btnPaper.addEventListener('click', () => {
-            playRound("PAPER", scoreArray, boxSelectionDisplay, scoreDisplay);
-
-        });
-
-        btnScissor.addEventListener('click', () => {
-            playRound("SCISSOR", scoreArray, boxSelectionDisplay, scoreDisplay);
-
-        });
-
-    
-
+function playGame(roundNum){
     
 }
 
 
 
 
-const boxPlayerSelectionDisplay = document.querySelector("#player-selection-display");
-const boxComputerSelectionDisplay = document.querySelector("#computer-selection-display");
-var boxSelectionDisplay = [boxPlayerSelectionDisplay, boxComputerSelectionDisplay];
+//GAME MEMORY
+//Defintions
 
-
-const playerScoreDisplay = document.querySelector('#player-score');
-const compScoreDisplay = document.querySelector('#comp-score');    
-const drawScoreDisplay = document.querySelector('#draw-score');
-var scoreDisplay = [playerScoreDisplay, compScoreDisplay, drawScoreDisplay];
-
-
-var playerScore = 0;
-var computerScore = 0;
-var draw = 0;
-var scoreArray = [ playerScore, computerScore, draw];
-
-
-var noRounds = 5;
-var roundNumber = document.querySelector('#round-number');
+//variables
 
 
 
+var round = [0,4];            //[Current round number, Total round number]
+var score = [0, 0, 0];        //[player, draw, computer]
+var choice = ["", ""];        //[player, computer]
+var winner = "DRAW";
 
-playGame(scoreArray, boxSelectionDisplay, scoreDisplay);
-    
+
+//constants
+
+const btnRock = document.querySelector('#rock');
+const btnPaper = document.querySelector('#paper');
+const btnScissor = document.querySelector('#scissor');
 
 
 
 
 
+//GAME LOGIC
 
 
 
 
+//function calls
+
+
+
+playGame(round);
 
 
 
 
-
+//memory value tests
