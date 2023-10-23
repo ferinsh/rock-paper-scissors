@@ -3,19 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rock Paper Scissor</title>
-
-    <link rel="stylesheet" href="./index.css">
-    <script src="./game/game.js" defer></script>
+    <title>Rock Paper Scissors</title>
+    <link href="./index.css" rel="stylesheet">
 </head>
 <body>
-    <div class="get-number-rounds">
-        <div class="gnr-upper">
-            <h3>Enter Number of nodes</h3>
+    <div class="game-room">
+        <div class="play-area">
+            <div class = "player-selection">
+                <input type="button" value="ROCK" id="btn">
+                <input type="button" value="PAPER" id="btn">
+                <input type="button" value="SCISSOR" id="btn">
+            </div>
+            <div class = "player-choice">
+                <h1 class = "name">PLAYER</h2>
+                <h2 id="player-selection" class = "selection"></h2>
+            </div>
+            <div class="comp-choice">
+                <h1 class = "name">COMPUTER</h2>
+                <h2 id="comp-selection" class = "selection"></h2>
+            </div>
+        
+            <div class="score">
+                <div id="score-player">Score: 0</div>
+                <div id="score-comp">Score: 0</div>
+            </div>
+            <div class="play-again">
+                <p id="play-again">PLAY</p>
+            </div>
         </div>
-        <div class = "gnr-lower">
-            
+
+        <div class="reset">
+            <input type="button" value="RESET" id="reset">
         </div>
     </div>
+
+    <script src="./index.js"></script>
 </body>
 </html>
