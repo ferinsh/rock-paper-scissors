@@ -22,30 +22,33 @@ function playRound(playerSelection){
        (playerSelection == "paper" && computerSelection == "rock")){
 
         playerScore += 1
-        result = ('You win!' + "<br><br>Player score: " + playerScore + "<br>Computer score: " + computerScore)
+        
         
         if (playerScore == 5){
-            result += '<br><br>You won the game! Reload the page to play again'
+            
+            document.getElementById("play-again").textContent = "Player Wins. reload to play again."
             disableButtons() 
         }
     }
     else if(playerSelection == computerSelection) {
-        result = ("It's a tie. You both choose " + playerSelection
-                + "<br><br>Player score: " + playerScore + "<br>Computer score: " + computerScore)
+        
     }
     else{
         computerScore += 1
-        result = ('You lose! ' + computerSelection + ' beats ' + playerSelection
-            + "<br><br>Player score: " + playerScore + "<br>Computer score: " + computerScore)
+        
     
         if (computerScore == 5) {
-            result += '<br><br>I won the game! Reload the page to play again'
+           
+            document.getElementById("play-again").textContent = "Computer wins, reload to play again."
             disableButtons()
         }
     }
 
-    document.getElementById('result').innerHTML = result
-    document.getElementById('player-selection').textContent = playerSelection
+    
+    document.getElementById('player-selection').textContent = playerSelection.toUpperCase()
+    document.getElementById('comp-selection').textContent = computerSelection.toUpperCase()
+    document.getElementById('score-player').textContent = "Player Score: " + playerScore
+    document.getElementById('score-comp').textContent = "Computer Score: " + computerScore
     return
 
 }
@@ -54,7 +57,7 @@ function playRound(playerSelection){
 
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
-        playRound(button.value)
+        playRound(button.value.toLowerCase())
 
     })
 })

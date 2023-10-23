@@ -1,17 +1,46 @@
 
 
+.game-room{
+    
+    margin: auto;
+    
+    flex-direction: column;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding: 50px;
+    width: 900px;
+    margin-top: 50px;
+    background-color: aqua;
+    
+}
+
+
+.play-area{
+    display: flex;
+    flex-direction: column;
+    width: 700px;
+    margin: auto;
+    border: 1px solid tomato;
+    
+    
+}
+
 .player-selection{
     display: flex;
-    margin: auto;
+    
     background: beige;
     padding: 10px;
     justify-content: space-around;
+    align-items: center;
     height: 50px;
 }
 
 .player-selection input{
     height: 30px;
     width: 100px;
+    color: beige;
+    background: gray;
+    font-size: 20px;
 }
 
 .result{
@@ -30,17 +59,35 @@
     align-items: center;
     justify-content: center;
     height: 150px;
-
+    color: beige;
     background: gray;
 }
 
 .name{
-    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    height: 60px;
+    width: 200px;
+    border: 4px solid black;
+
 }
 
+
+
 .selection{
-    height: 70px;
-    background: gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90px;
+    width: 200px;
+    border: 4px solid black;
+    text-align: center;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    
 }
 
 .comp-choice{
@@ -49,6 +96,21 @@
     align-items: center;
     justify-content: center;
     height: 150px;
-
+    color: gray;
     background: beige;
+}
+
+.score{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 50px;
+    background: gray;
+}
+
+.play-again{
+    display: flex;
+    justify-content: center;
+    background: beige;
+    height: 50px;
 }
