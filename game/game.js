@@ -1,6 +1,8 @@
 var playerScore = 0
 var computerScore = 0
-const buttons = document.querySelectorAll('input')
+const buttons = document.querySelectorAll('#btn')
+
+const btnReset = document.querySelector('#reset')
 
 function computerPlay(){
     var choices = ['rock', 'paper', 'scissor']
@@ -60,4 +62,8 @@ buttons.forEach((button) => {
         playRound(button.value.toLowerCase())
 
     })
+})
+
+btnReset.addEventListener('click', () => {
+    location.reload()
 })

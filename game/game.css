@@ -1,7 +1,9 @@
 
 
 .game-room{
-    
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin: auto;
     
     flex-direction: column;
@@ -113,4 +115,19 @@
     justify-content: center;
     background: beige;
     height: 50px;
+}
+
+.reset{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
+#reset{
+    color: beige;
+    background: gray;
+    height: 30px;
+    width: 100px;
+    font-size: 20px;
 }
