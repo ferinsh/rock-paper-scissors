@@ -1,4 +1,6 @@
 
+
+
 function getComputerChoice(){
     let choice = ["rock", "paper", "scissor"];
     let x = Math.floor(Math.random() * (3) + 0);
@@ -6,7 +8,12 @@ function getComputerChoice(){
     return choice[x].toUpperCase();
 }
 
-function playRound(playerSelection, computerSelection){
+function getWinner(playerSelection, boxSelectionDisplay){
+    var computerSelection = "";
+    computerSelection = getComputerChoice().toUpperCase();
+    boxSelectionDisplay[0].textContent = "ROCK";
+    boxSelectionDisplay[1].textContent = computerSelection;
+
     if(playerSelection == computerSelection){
         return "draw";
     }
@@ -30,105 +37,128 @@ function playRound(playerSelection, computerSelection){
     }   
 }
 
-function playGame(computerChoice, playerScore, computerScore, draw){
+function playRound(playerSelection, scoreArray, scoreDisplay){
+    
+    
+    console.log(scoreArray[0]);
+    console.log(scoreArray[1]);
+    console.log(scoreArray[2]);
+
+    if(getWinner(playerSelection, boxSelectionDisplay) == "player"){
+        scoreArray[0] = scoreArray[0] + 1;
+        scoreDisplay[0].textContent = "Player score: " + scoreArray[0];
+    }
+    if(getWinner(playerSelection, boxSelectionDisplay) == "computer"){
+        scoreArray[1] = scoreArray[1] + 1;
+        scoreDisplay[1].textContent = "Computer score: " + scoreArray[1];
+    }
+    if(getWinner(playerSelection, boxSelectionDisplay) == "draw"){
+        scoreArray[2] = scoreArray[2] + 1;
+        scoreDisplay[2].textContent = "Draw: " + scoreArray[2];
+    }
+}
+
+
+function checkRound(roundNumber){
+    var roundNumberInt = parseInt(roundNumber.textContent);
+    return roundNumberInt;
+}
+
+function nextround(){
+    playGame(scoreArray, boxSelectionDisplay, scoreDisplay);
+}
+
+
+function playGame(scoreArray, boxSelectionDisplay, scoreDisplay){
 /*    var computerChoice = "";
 
     var playerScore = 0;
     var computerScore = 0;
     var draw = 0;
 */
-    const boxPlayerSelectionDisplay = document.querySelector("#player-selection-display");
-    const boxComputerSelectionDisplay = document.querySelector("#computer-selection-display");
     
-    const playerScoreDisplay = document.querySelector('#player-score');
-    const compScoreDisplay = document.querySelector('#comp-score');    
-    const drawScoreDisplay = document.querySelector('#draw-score');
+    console.log(scoreArray)
+
+    //const boxPlayerSelectionDisplay = document.querySelector("#player-selection-display");
+    //console.log(typeof(boxPlayerSelectionDisplay));
+    
+    //const boxComputerSelectionDisplay = document.querySelector("#computer-selection-display");
+    
+    //const playerScoreDisplay = document.querySelector('#player-score');
+    //const compScoreDisplay = document.querySelector('#comp-score');    
+    //const drawScoreDisplay = document.querySelector('#draw-score');
 
     const btnRock = document.querySelector('#rock');
     const btnPaper = document.querySelector('#paper');
     const btnScissor = document.querySelector('#scissor');
+
     
-    btnRock.addEventListener('click', () => {
-        computerChoice = getComputerChoice();
-        playRound("ROCK", computerChoice);
-        boxPlayerSelectionDisplay.textContent = "ROCK";
-        boxComputerSelectionDisplay.textContent = computerChoice;
+    
+    
+    
+        console.log(checkRound(roundNumber));
+        btnRock.addEventListener('click', () => {
+            playRound("ROCK", scoreArray, boxSelectionDisplay, scoreDisplay);
+            console.log(checkRound(roundNumber));
+            
+            if(checkRound(roundNumber)<noRounds){
+                nextround();
+            }
+            
+        });
 
-        if(playRound("ROCK", computerChoice) == "player"){
-            playerScore = playerScore + 1;
-            playerScoreDisplay.textContent = "Player score: " + playerScore;
-        }else if(playRound("ROCK", computerChoice) == "computer"){
-            computerScore = computerScore + 1;
-            compScoreDisplay.textContent = "Computer score: " + computerScore;
-        }else{
-            draw = draw + 1;
-            drawScoreDisplay.textContent = "Draw: " + draw;
-        }
+        btnPaper.addEventListener('click', () => {
+            playRound("PAPER", scoreArray, boxSelectionDisplay, scoreDisplay);
 
-    });
+        });
 
-    btnPaper.addEventListener('click', () => {
-        computerChoice = getComputerChoice();
+        btnScissor.addEventListener('click', () => {
+            playRound("SCISSOR", scoreArray, boxSelectionDisplay, scoreDisplay);
 
-        playRound("PAPER", computerChoice);
-        boxPlayerSelectionDisplay.textContent = "PAPER";
-        boxComputerSelectionDisplay.textContent = getComputerChoice();
+        });
 
-        if(playRound("PAPER", computerChoice) == "player"){
-            playerScore = playerScore + 1;
-            playerScoreDisplay.textContent = "Player score: " + playerScore;
-        }else if(playRound("ROCK", computerChoice) == "computer"){
-            computerScore = computerScore + 1;
-            compScoreDisplay.textContent = "Computer score: " + computerScore;
-        }else{
-            draw = draw + 1;
-            drawScoreDisplay.textContent = "Draw: " + draw;
-        }
-    })
-
-    btnScissor.addEventListener('click', () => {
-        computerChoice = getComputerChoice();
-
-        playRound("SCISSOR", computerChoice);
-        boxPlayerSelectionDisplay.textContent = "SCISSOR";
-        boxComputerSelectionDisplay.textContent = getComputerChoice();
-
-        if(playRound("ROCK", computerChoice) == "player"){
-            playerScore = playerScore + 1;
-            playerScoreDisplay.textContent = "Player score: " + playerScore;
-        }else if(playRound("ROCK", computerChoice) == "computer"){
-            computerScore = computerScore + 1;
-            compScoreDisplay.textContent = "Computer score: " + computerScore;
-        }else{
-            draw = draw + 1;
-            drawScoreDisplay.textContent = "Draw: " + draw;      
-        }
-    })
+    
 
     
 }
 
 
 
+
+const boxPlayerSelectionDisplay = document.querySelector("#player-selection-display");
+const boxComputerSelectionDisplay = document.querySelector("#computer-selection-display");
+var boxSelectionDisplay = [boxPlayerSelectionDisplay, boxComputerSelectionDisplay];
+
+
+const playerScoreDisplay = document.querySelector('#player-score');
+const compScoreDisplay = document.querySelector('#comp-score');    
+const drawScoreDisplay = document.querySelector('#draw-score');
+var scoreDisplay = [playerScoreDisplay, compScoreDisplay, drawScoreDisplay];
+
+
 var playerScore = 0;
-var compScore = 0;
+var computerScore = 0;
 var draw = 0;
-var computerChoice = ""
+var scoreArray = [ playerScore, computerScore, draw];
+
+
 var noRounds = 5;
-
-var scoreArray = [playerScore,compScore,draw];
-console.log(scoreArray[compScore]);
-
-
-
-
 var roundNumber = document.querySelector('#round-number');
-console.log(roundNumber.textContent);
 
 
 
 
-  playGame("", 0, 0, 0);
+playGame(scoreArray, boxSelectionDisplay, scoreDisplay);
+    
+
+
+
+
+
+
+
+
+
 
 
 
