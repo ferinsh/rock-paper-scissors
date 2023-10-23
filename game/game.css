@@ -1,147 +1,54 @@
-body{
-    background: gray;
-}
 
-
-.play-area{
-    display: flex;
-    flex-direction: column;
-    margin: auto;
-    margin-top: 150px;
-    height: 600px;
-    width: 500px;
-}
-
-.winner{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 50px;
-    background: beige;
-    
-    
-}
-
-.winner h1{
-    font-size: 30px;
-    color: cadetblue; 
-    text-align: center;   
-}
-
-.round{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 50px;
-    background: white;
-    border: 1px solid white;
-
-    padding-left: 10px;
-    padding-right: 10px;
-}
-
-.round p{
-    font-size: 30px;
-}
-
-.score{
-    height: 50px;
-    background-color: aquamarine;
-    border: 1px solid white;
-    
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-left: 10px;
-    padding-right: 10px;
-
-}
-
-
-.score h3{
-
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    text-align: center;
-    height: 40px;
-    width: 100px;
-
-    padding-left: 5px;
-    padding-right: 5px;
-
-    color: brown;
-    font-size: 15px;
-    background: beige;
-
-    border: 1px solid white;
-    border-radius: 50px;
-    
-}
-
-.computer-area{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    height: 200px;
-    background-color: beige;
-    border: 2px solid white;
-}
-
-.player-area{
-    display: flex;
-    flex-direction: column;
-    height: 300px;
-    background-color: antiquewhite;
-    
-}
 
 .player-selection{
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    
-    height: 200px;
-    border: 2px solid white;
-    
-}
-
-
-.selection-display{
-    color: brown;
-}
-
-.player-choice{
-
-    display: flex;
-    align-content: center;
-    justify-content: center;
-    
-    border: 2px solid white;
-    height: 100px;
-    
-    
-}
-
-.player-choice button{
-    background-color: burlywood;
-    border: 2px solid white;
-    border-radius: 50px;
-    
-    height: 50px;
     margin: auto;
-    width: 100px;
-    
+    background: beige;
+    padding: 10px;
+    justify-content: space-around;
+    height: 50px;
 }
 
+.player-selection input{
+    height: 30px;
+    width: 100px;
+}
 
+.result{
+    display: flex;
+    justify-content: center;
+    background: gray;
+}
 
-.player-choice button:hover{
-    background-color: cadetblue;
-    border: 3px solid black;
+#result{
+    text-align: center;
+}
+
+.player-choice {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 150px;
+
+    background: gray;
+}
+
+.name{
+    height: 30px;
+}
+
+.selection{
+    height: 70px;
+    background: gray;
+}
+
+.comp-choice{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 150px;
+
+    background: beige;
 }

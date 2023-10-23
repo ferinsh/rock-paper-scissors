@@ -3,48 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <title>Rock Paper Scissors</title>
-    <link rel="stylesheet" href="./game.css">
-    <script src="./game.js" defer></script>
-
-    
+    <link href="./game.css" rel="stylesheet">
 </head>
-
-
 <body>
-
-    <div class="play-area">
-        <div class="winner">
-            <h1>PLAY</h1>
-        </div>
-        <div class = "round">
-            <div>
-                <p>ROUND:</p>
-            </div>
-            <div >
-                <h1 id="round-number">0</h1>
-            </div>
-        </div>
-        <div class = "score">
-            <h3 id="player-score">Player score: 0</h3>
-            <h3 id="draw-score">Draw: 0</h3>
-            <h3 id="comp-score">Computer score: 0</h3>
-        </div>
-        <div class="computer-area">
-            <h1 class = "selection-display" id="computer-selection-display">COMPUTER</h1>
-        </div>
-        <div class="player-area">
-            <div class="player-selection">
-                <h1 class = "selection-display" id="player-selection-display">PLAYER</h1>
-            </div>
-            <div class="player-choice">
-                <button id="rock">ROCK</button>
-                <button id="paper">PAPER</button>
-                <button id="scissor">SCISSOR</button>
-            </div>
-        </div>
+    <div class = "player-selection">
+        <input type="button" value="rock">
+        <input type="button" value="paper">
+        <input type="button" value="scissor">
     </div>
-
+    <div class = "player-choice">
+        <h1 class = "name">PLAYER</h2>
+        <h2 id="player-selection" class = "selection"></h2>
+    </div>
+    <div class="comp-choice">
+        <h1 class = "name">COMPUTER</h2>
+        <h2 id="comp-selection" class = "selection"></h2>
+    </div>
+    <div class="result">
+        <p id="result"></p>
+    </div>
+    <script src="./game.js"></script>
 </body>
 </html>
